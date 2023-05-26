@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: #3498db;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .main{
+            background-color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        h2{
+            margin-bottom: 10px;
+        }
+        input{
+            width: 200px;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        input[type = "submit"]{
+            width: 220px;
+            background-color: #3498db;
+            border: 0;
+            color: white;
+        }
+        .error{
+            color: red;
+            margin: 0px;
+            text-align: left;
+        }
+    </style>
+    <title>FormValidator</title>
+</head>
+<body>
+    <div class="main">
+        <h2>Login</h2>
+    <form action="" onsubmit="return Checker()">
+        <input type="text" placeholder="username" id="username"><br/>
+        <p class="error" id="uerror"></p>
+        <input type="password" placeholder="password"  id="password"><br/>
+        <p class="error" id="perror"></p>
+        <input type="submit" >
+    </form>
+    </div>
+    
+
+    <script>
+        let username = document.getElementById("username");
+        let password = document.getElementById("password");
+        let error = document.getElementById("error");
+        let flag = true;
+
+        const  Checker = ()=>{
+           if(username.value == ""){
+            uerror.innerHTML="Username Require"
+            flag = false;
+           }else if(username.value.length<3){
+            uerror.innerHTML = "Username require 3 char"
+            flag = false;
+           }else{
+            uerror.innerHTML = ""
+            flag = true;
+           }
+
+           if(password.value == ""){
+            perror.innerHTML = " Password Require"
+            flag = false;
+           }else{
+             perror.innerHTML = ""
+             flag = true;
+           }
+
+
+           if(flag){
+              return true;
+           }else{
+              return false;
+           }
+        }
+    </script>
+</body>
+</html>

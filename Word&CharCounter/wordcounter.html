@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            padding: 50px 100px;
+            /* display: flex;
+            flex-direction: column; */
+        }
+        h1{
+            text-align: center;
+            color: white;
+            background-color: #0067B0;
+            padding: 20px;
+        }
+        textarea{
+            width: 100%;
+            border-color: #0067B0;
+        }
+        p{
+            text-align: center;
+            background-color: #0067B0;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 20px;
+        }
+
+        .btn{
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border: solid gray 3px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        #white{
+            background-color: white;
+        }
+        #black{
+            background-color: black;
+        }
+    </style>
+    <title>Word&CharCounter</title>
+</head>
+<body>
+    <div>
+        <span class="btn" id="white" onclick="changeBG('white')"></span>
+        <span class="btn" id="black" onclick="changeBG('black')"></span>
+    </div>
+    <h1>Word and Character Counter</h1>
+    <textarea  id="textbox" cols="30" rows="10"></textarea>
+    <p>
+        <span id="word">0</span>words and
+        <soan id="char">0</soan>characters
+    </p>
+    <script>
+         function changeBG(color){
+           document.body.style.backgroundColor = color;
+        }
+
+
+
+
+        let textbox = document.getElementById("textbox");
+
+        textbox.addEventListener('input',function(){
+            let text = this.value;
+
+            let char = text.length;
+            document.getElementById("char").innerHTML = char;
+            
+            text = text.trim();
+            let word = text.split(" ");
+            let clean = word.filter((el)=>{
+                return el != "";
+            });
+            document.getElementById("word").innerHTML = clean.length;
+        })
+    </script>
+</body>
+</html>
